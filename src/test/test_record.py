@@ -30,7 +30,7 @@ def test_record_get_artist():
     """
     alanis = Artist('Alanis Morrisette')
     record = Record('jagged little pill', alanis, 1995)
-    assert record.get_artist == alanis
+    assert record.get_artist() == alanis
 
 def test_record_get_year():
     """
@@ -75,7 +75,8 @@ def test_record_has_song():
     s2 = Song('Hand in My Pocket', 115, 'rock')
     record.songs = [s1, s2]
     assert record.has_song(s1) == True
-    assert record.has_song(Song('Complicated')) == False
+    # Did not have enough arguments
+    assert record.has_song(Song('Blah Blah',220,'Complicated')) == False
 
 def test_record_get_longest_song():
     """
